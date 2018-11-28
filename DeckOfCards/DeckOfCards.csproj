@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2023D25-2211-4384-B5E5-465B363F4FEB}</ProjectGuid>
+    <ProjectGuid>{D4FC8CED-5AE3-47D8-8F16-B73E19B97F02}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>DeckOfCards</RootNamespace>
     <AssemblyName>DeckOfCards</AssemblyName>
@@ -43,11 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Enumerations\UnoSuites.cs" />
+    <Compile Include="Business\Models\CardModel.cs" />
+    <Compile Include="Business\Enumerations\StandardSuites.cs" />
+    <Compile Include="Business\Models\Deck.cs" />
+    <Compile Include="Business\Models\ICardGame.cs" />
+    <Compile Include="Business\Models\IDeck.cs" />
+    <Compile Include="Business\Models\StandardDeck.cs" />
+    <Compile Include="Business\Models\UnoDeck.cs" />
+    <Compile Include="Data\DeckDataLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CardGame.cs" />
+    <Compile Include="Services\Family\Uno.cs" />
+    <Compile Include="Services\Poker\FiveCardDraw.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
