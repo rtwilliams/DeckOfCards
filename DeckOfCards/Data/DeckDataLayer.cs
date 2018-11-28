@@ -82,5 +82,4 @@ namespace DeckOfCards.Data
             return deck.Cards;
         }
     }
-
 }
