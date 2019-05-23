@@ -28,15 +28,15 @@ namespace DeckOfCards.Business.Models
         public void Shuffle()
         {
             var rand = new Random();
-            var mIndex = GetCards().Count;
+            var mIndex = _cards.Count;
             int nIndex;
             while (mIndex > 1)
             {
                 mIndex--;
                 nIndex = rand.Next(mIndex + 1);
-                var card = GetCards()[nIndex];
-                GetCards()[nIndex] = GetCards()[mIndex];
-                GetCards()[mIndex] = card;
+                var card = _cards[nIndex];
+                _cards[nIndex] = _cards[mIndex];
+                _cards[mIndex] = card;
             }
         }
 
