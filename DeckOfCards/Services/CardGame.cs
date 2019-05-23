@@ -1,10 +1,7 @@
 ﻿using Business.Models.DeckOfCards;
 using DeckOfCards.Business.Models;
-using System;
+using DeckOfCards.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DeckOfCards.Services
 {
@@ -20,17 +17,17 @@ namespace DeckOfCards.Services
 
         public virtual List<CardModel> Deal()
         {
-            return Deck.Cards.GetRange(0, 5);
+            return Deck.GetCards().GetRange(0, 5);
         }
 
         public CardModel Draw()
         {
-            return Deck.Cards[0];
+            return Deck.GetCards()[0];
         }
 
         public string GetDeckName()
         {
-            return Deck.Name;
+            return Deck.GetName();
         }
 
         public void ShuffleDeck()
@@ -38,9 +35,9 @@ namespace DeckOfCards.Services
             Deck.Shuffle();
         }
 
-        public void ResetDeck()
+        public virtual void ResetDeck()
         {
-            Deck.ResetDeck();
+            Deck.ResetDeck(CardsDataLayer.GetStandardDeck());
         }
     }
 }

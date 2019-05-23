@@ -1,23 +1,16 @@
 ﻿using DeckOfCards.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DeckOfCards.Business.Models
 {
     public class UnoDeck : Deck
     {
-        public UnoDeck()
+        public UnoDeck() : base("Uno", CardsDataLayer.GetUnoCards())
         {
-            Name = "Uno";
-            Cards = DeckDataLayer.GetUnoDeck();
         }
         
-        public override void ResetDeck()
+        public void ResetDeck()
         {
-            Cards = DeckDataLayer.GetUnoDeck();
+            base.ResetDeck(CardsDataLayer.GetUnoCards());
         }
     }
 }

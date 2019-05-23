@@ -1,10 +1,7 @@
 ﻿using Business.Models.DeckOfCards;
 using DeckOfCards.Business.Models;
-using System;
+using DeckOfCards.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DeckOfCards.Services.Family
 {
@@ -12,12 +9,16 @@ namespace DeckOfCards.Services.Family
     {
         public Uno(IDeck deck) :base(deck)
         {
-            Name = "Uno";
         }
 
         public override List<CardModel> Deal()
         {
-            return Deck.Cards.GetRange(0, 11);
+            return Deck.GetCards().GetRange(0, 11);
+        }
+
+        public override void ResetDeck()
+        {
+            base.Deck.ResetDeck(CardsDataLayer.GetUnoCards());
         }
     }
 }

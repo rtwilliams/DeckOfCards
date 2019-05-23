@@ -1,7 +1,4 @@
-﻿using DeckOfCards.Business.Enumerations;
-using DeckOfCards.Business.Models;
-
-namespace Business.Models.DeckOfCards
+﻿namespace Business.Models.DeckOfCards
 {
     public class CardModel
     {

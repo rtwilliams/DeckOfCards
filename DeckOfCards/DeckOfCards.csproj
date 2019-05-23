@@ -51,7 +51,7 @@
     <Compile Include="Business\Models\IDeck.cs" />
     <Compile Include="Business\Models\StandardDeck.cs" />
     <Compile Include="Business\Models\UnoDeck.cs" />
-    <Compile Include="Data\DeckDataLayer.cs" />
+    <Compile Include="Data\CardsDataLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CardGame.cs" />

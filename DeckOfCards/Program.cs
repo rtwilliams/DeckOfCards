@@ -1,6 +1,5 @@
 ﻿using Business.Models.DeckOfCards;
 using DeckOfCards.Business.Models;
-using DeckOfCards.Data;
 using DeckOfCards.Services.Family;
 using DeckOfCards.Services.Poker;
 using System;
@@ -89,12 +88,14 @@ namespace DeckOfCards
             {
                 Console.WriteLine(String.Format("{0}", card.Print()));
             }
+            Console.WriteLine("\nPress any key to continue...");
             return MenuReturn();
         }
 
         private static ConsoleKey DisplayCard(CardModel card)
         {
             Console.WriteLine(string.Format("\n\nCard drawn: {0}", card.Print()));
+            Console.WriteLine("\nPress any key to continue...");
             return MenuReturn();
         }
 
@@ -102,6 +103,7 @@ namespace DeckOfCards
         {
             game.ShuffleDeck();
             Console.WriteLine("\n\nDeck Shuffled\n");
+            Console.WriteLine("Press any key to continue...");
             return MenuReturn();
         }
 
@@ -109,6 +111,7 @@ namespace DeckOfCards
         {
             game.ResetDeck();
             Console.WriteLine("\n\nDeck Reset\n");
+            Console.WriteLine("Press any key to continue...");
             return MenuReturn();
         }
 
@@ -116,6 +119,7 @@ namespace DeckOfCards
         {
             Console.ReadKey();
             Console.WriteLine("\n" + returnMessage);
+            Console.WriteLine("Press any key to continue...");
             return ConsoleKey.Q;
         }
     }

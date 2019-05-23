@@ -1,10 +1,5 @@
-﻿using Business.Models.DeckOfCards;
-using DeckOfCards.Business.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DeckOfCards.Business.Models;
+using DeckOfCards.Data;
 
 namespace DeckOfCards.Services.Poker
 {
@@ -12,7 +7,6 @@ namespace DeckOfCards.Services.Poker
     {
         public FiveCardDraw(IDeck deck) : base(deck)
         {
-            Name = "Five Card Draw";
         }
     }
 }

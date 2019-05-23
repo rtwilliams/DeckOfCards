@@ -1,39 +1,48 @@
 ﻿using Business.Models.DeckOfCards;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DeckOfCards.Business.Models
 {
     public class Deck : IDeck
     {
-        public string Name { get; set; }
-        public List<CardModel> Cards { get; set; }
-        public Deck()
+        readonly string _name;
+        List<CardModel> _cards;
+
+        public Deck(string name, List<CardModel> cards)
         {
-            Cards = new List<CardModel>();
+            _name = name;
+            _cards = cards;
+        }
+
+        public string GetName()
+        {
+            return _name;
+        }
+
+        public List<CardModel> GetCards()
+        {
+            return _cards;
         }
 
         public void Shuffle()
         {
             var rand = new Random();
-            var mIndex = Cards.Count;
+            var mIndex = GetCards().Count;
             int nIndex;
             while (mIndex > 1)
             {
                 mIndex--;
                 nIndex = rand.Next(mIndex + 1);
-                var card = Cards[nIndex];
-                Cards[nIndex] = Cards[mIndex];
-                Cards[mIndex] = card;
+                var card = GetCards()[nIndex];
+                GetCards()[nIndex] = GetCards()[mIndex];
+                GetCards()[mIndex] = card;
             }
         }
 
-        public virtual void ResetDeck()
+        public virtual void ResetDeck(List<CardModel> cards)
         {
-            throw new NotImplementedException();
+            _cards = cards;
         }
     }
 }
