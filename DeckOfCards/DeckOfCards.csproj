@@ -55,8 +55,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CardGame.cs" />
-    <Compile Include="Services\Family\Uno.cs" />
-    <Compile Include="Services\Poker\FiveCardDraw.cs" />
+    <Compile Include="Services\Family\UnoGame.cs" />
+    <Compile Include="Services\Poker\FiveCardDrawGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

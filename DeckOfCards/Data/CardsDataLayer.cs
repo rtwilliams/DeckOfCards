@@ -7,6 +7,9 @@ namespace DeckOfCards.Data
 {
     public static class CardsDataLayer
     {
+        /// <summary>
+        /// Returns a deck of Uno cards.
+        /// </summary>
         public static List<CardModel> GetUnoCards()
         {
             var cards = new List<CardModel>();
@@ -44,6 +47,9 @@ namespace DeckOfCards.Data
             return cards;
         }
 
+        /// <summary>
+        /// Returns a deck of Poker cards.
+        /// </summary>
         public static List<CardModel> GetStandardDeck()
         {
             var cards = new List<CardModel>();

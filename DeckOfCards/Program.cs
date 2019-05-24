@@ -20,10 +20,10 @@ namespace DeckOfCards
                 switch (input)
                 {
                     case ConsoleKey.D1:
-                        GameMenu(new FiveCardDraw(new StandardDeck()));
+                        GameMenu(new FiveCardDrawGame());
                         break;
                     case ConsoleKey.D2:
-                        GameMenu(new Uno(new UnoDeck()));
+                        GameMenu(new UnoGame());
                         break;
                 }
             }
@@ -42,9 +42,10 @@ namespace DeckOfCards
             return key;
         }
 
-        private static ConsoleKeyInfo DisplayGameMenu(string deckName)
+        private static ConsoleKeyInfo DisplayGameMenu(string gameName, string deckName)
         {
             Console.Clear();
+            Console.WriteLine("The game is " + gameName);
             Console.WriteLine("This game uses a " + deckName + " deck of cards. Choose an option:\n");
             Console.WriteLine("s.) Shuffle Deck");
             Console.WriteLine("d.) Deal Hand");
@@ -61,7 +62,7 @@ namespace DeckOfCards
             do
             {
                 Console.Clear();
-                input = DisplayGameMenu(game.GetDeckName()).Key;
+                input = DisplayGameMenu(game.GetName(), game.GetDeckName()).Key;
                 switch (input)
                 {
                     case ConsoleKey.D:
@@ -83,10 +84,16 @@ namespace DeckOfCards
 
         private static ConsoleKey DisplayHand(List<CardModel> hand)
         {
-            Console.WriteLine("\n\nPrint all cards in hand: \n");
-            foreach (var card in hand)
+            if (hand == null)
+                Console.WriteLine("\n\nThere are not enough cards left in the deck to produce a hand.");
+            else
             {
-                Console.WriteLine(String.Format("{0}", card.Print()));
+                Console.WriteLine("\n\nPrint all cards in hand: \n");
+                foreach (var card in hand)
+                {
+                    Console.WriteLine(String.Format("{0}", card.Print()));
+                }
+
             }
             Console.WriteLine("\nPress any key to continue...");
             return MenuReturn();
@@ -94,7 +101,10 @@ namespace DeckOfCards
 
         private static ConsoleKey DisplayCard(CardModel card)
         {
-            Console.WriteLine(string.Format("\n\nCard drawn: {0}", card.Print()));
+            if (card == null)
+                Console.WriteLine("\n\nAll cards from this deck have been dealt. You must shuffle the deck to continue dealing.");
+            else
+                Console.WriteLine(string.Format("\n\nCard drawn: {0}", card.Print()));
             Console.WriteLine("\nPress any key to continue...");
             return MenuReturn();
         }
